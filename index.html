@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Trains!</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -12,21 +12,91 @@
 </head>
 
 <body>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">Anytime is Train Time</h1>
+            <h2 class="text-center">Choo Choo Chee Chee</h2>
+        </div>
+
+        <div class="card card-default">
+            <div class="card-header">
+                Current Train Schedule
+            </div>
+            <div class="card-body">
 
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Train Time</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                        <tr>
+                            <td>Hogwarts Express</td>
+                            <td>Hogsmeade Station</td>
+                            <td>525600</td>
+                            <td>09:00 AM</td>
+                            <td>300</td>
+                        </tr>
 
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <script src="javascript/train.js" async defer></script>
+        <br>
+
+        <div class="card card-default">
+            <div class="card-header">
+                Add Train
+            </div>
+            <div class="card-body">
+
+                <form role="form">
+                    <div class="form-group row">
+                        <label for="name-input">Train Name</label>
+                        <input class="form-control" id="name-input" type="text">
+                    </div>
+                    <div class="form-group row">
+                        <label for="destination-input">Destination</label>
+                        <input class="form-control" id="destination-input" type="email">
+                    </div>
+                    <div class="form-group row">
+                        <label for="time-input">First Train Time (HH:mm - military time)</label>
+                        <input class="form-control" id="time-input" type="text">
+                    </div>
+                    <div class="form-group row">
+                        <label for="frequency-input">Frequency (min)</label>
+                        <input class="form-control" id="frequency-input" type="number">
+                    </div>
+                    <button class="btn btn-primary" id="add-user" type="submit">Submit</button>
+                </form>
+                </form>
+            </div>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+
+        <script src="javascript/train.js" async defer></script>
 </body>
 
 </html>
