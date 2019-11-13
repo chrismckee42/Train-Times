@@ -51,9 +51,20 @@ database.ref().orderByChild("dateAdded").on("child_added", function (snapshot) {
     var row = $("<tr>")
     row.append($("<td>").text(snapshot.val().name))
     row.append($("<td>").text(snapshot.val().dest))
-    row.append($("<td>").text(snapshot.val().time))
-    row.append($("<td>").text(5))
-    row.append($("<td>").text(snapshot.val().freq))
+    freq = snapshot.val().freq
+    row.append($("<td>").text(freq))
+    var trainTime = moment(snapshot.val().time, "HH:mm")
+    var diff = moment().diff(moment(trainTime), "minutes")
+    if (diff > 0) {
+        remainder = diff % freq
+        row.append($("<td>").text(moment().add(freq - remainder, "minutes").format("HH:mm")))
+        row.append($("<td>").text(freq - remainder))
+        //console.log(remainder, )
+    } else {
+        row.append($("<td>").text(snapshot.val().time))
+        row.append($("<td>").text(-diff))
+    }
+    //row.append($("<td>").text(5))
 
     $("#table").append(row)
 
